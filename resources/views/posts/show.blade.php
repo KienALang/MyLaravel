@@ -5,10 +5,30 @@
 @section('content')
 
 <div class="row">
-	<div class="col-md-12">
-		<div class="jumbotron">
-			<h1>This is new post</h1>
-			<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>              
+	<div class="col-md-8">
+		<h1>{{ $post->title }}</h1>
+		<p class="lead">{{ $post->body }}</p>
+	</div>
+	<div class="col-md-4">
+		<div class="well">
+			<dl class="dl-horizontal">
+				<dt>Create At:</dt>
+				<dd>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</dd>
+			</dl>
+
+			<dl class="dl-horizontal">
+				<dt>Last update:</dt>
+				<dd>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</dd>
+			</dl>
+			<hr>
+			<div class="row">
+				<div class="col-sm-6">
+					{!! Html::linkRoute('posts.edit', 'Edit', array($post->id), array('class'=>'btn btn-primary btn-block'))!!}
+				</div>
+				<div class="col-sm-6">
+					{!! Html::linkRoute('posts.destroy', 'Delete', array($post->id), array('class'=>'btn btn-danger btn-block'))!!}					
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
