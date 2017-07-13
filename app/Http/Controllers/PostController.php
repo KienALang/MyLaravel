@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Session;
 
 class PostController extends Controller
 {
@@ -39,14 +40,17 @@ class PostController extends Controller
         $this->validate($request, array(
             'title'=>'required|max:255',
             'body'=>'required',
-            ));
+            )); //if error -->automatic return function create()
+        
 
-        //store in the database
+        //store in the database. If the validate success the code bellow. if not it automatic go back to the page input form.
         $post = new Post;
         $post->title = $request->title;
         $post->body = $request->body;
 
         $post->save();
+
+        Session::flash('success', 'The blog was successfully save!');
         //redirect to an other page
         return redirect()->route('posts.show', $post->id);
     }
@@ -59,7 +63,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('posts.show');
     }
 
     /**
