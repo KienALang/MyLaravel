@@ -9,7 +9,7 @@
 	<div class="col-md-8 col-md-offset-2">
 		<h1>Create New Post</h1>
 		<hr>
-		{!! Form::open(array('route' => 'posts.store', 'data-parsley-validate'=>'') !!}
+		{!! Form::open(array('route' => 'posts.store', 'data-parsley-validate'=>'')) !!}
 		{{Form::label('title','Title:')}}
 		{{Form::text('title',null, array('class'=>'form-control', 'required'=>''))}}
 
