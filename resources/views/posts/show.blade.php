@@ -12,12 +12,12 @@
 	<div class="col-md-4">
 		<div class="well">
 			<dl class="dl-horizontal">
-				<dt>Create At:</dt>
+				<dt>Created At:</dt>
 				<dd>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</dd>
 			</dl>
 
 			<dl class="dl-horizontal">
-				<dt>Last update:</dt>
+				<dt>Last updated:</dt>
 				<dd>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</dd>
 			</dl>
 			<hr>
