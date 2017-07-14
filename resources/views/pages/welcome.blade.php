@@ -14,35 +14,19 @@
 </div><!-- End of  row -->
 <div class="row">
   <div class="col-md-8">
+
+    @foreach($posts as $post)
+
     <div class="post">
-      <h3>Post title</h3>
-      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+      <h3>{{ $post->title }}</h3>
+      <p>{{ str_limit($post->body, 200) }}</p>
       <a href="#" class="btn btn-primary">Read More</a>
     </div>
 
     <hr>
 
-    <div class="post">
-      <h3>Post title</h3>
-      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-      <a href="#" class="btn btn-primary">Read More</a>
-    </div>
-
-    <hr>
-
-    <div class="post">
-      <h3>Post title</h3>
-      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-      <a href="#" class="btn btn-primary">Read More</a>
-    </div>
-
-    <hr>
-
-    <div class="post">
-      <h3>Post title</h3>
-      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-      <a href="#" class="btn btn-primary">Read More</a>
-    </div>
+    @endforeach
+    
   </div>
 
   <div class="col-md-3 col-md-offset-1">

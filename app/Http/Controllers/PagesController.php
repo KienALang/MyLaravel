@@ -1,22 +1,19 @@
 <?php
 namespace App\Http\Controllers;
+use App\Post;
 
 class PagesController extends Controller
 {
 	
 	public function getIndex(){
-		return view('pages/welcome');
+		$posts = Post::orderBy('created_at', 'desc')->limit(4)->get();
+		//Or We can use Post::latest()->limit(4)->get();﻿
+
+		return view('pages/welcome')->withPosts($posts);
 	}
 
 	public function getAbout(){
-		$first = 'Kenny';
-		$last = 'Alan';
-		$full = $first . " " . $last;
-		$email = 'alangkien96@gmail.com';
-		$data = [];
-		$data['email'] = $email;
-		$data['fullname'] = $full;
-
+		$data = 'Kenny';
 		return view('pages.about')->withData($data);
 	}
 
