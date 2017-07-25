@@ -30,7 +30,6 @@ class PostController extends Controller
      */
     public function create()
     {
-
         return view('posts.create');
     }
 
@@ -44,14 +43,16 @@ class PostController extends Controller
     {
         //Validate the data
         $this->validate($request, array(
-            'title'=>'required|max:255',
-            'body'=>'required',
+            'title' => 'required|max:255',
+            'slug' => 'required|alpha_dash|min:5|max:255',
+            'body' => 'required',
             )); //if error -->automatic return function create()
         
 
         //store in the database. If the validate success the code bellow. if not it automatic go back to the page input form.
         $post = new Post;
         $post->title = $request->title;
+        $post->slug = $request->slug;
         $post->body = $request->body;
 
         $post->save();
