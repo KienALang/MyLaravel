@@ -29,11 +29,14 @@
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Logout</a></li>
+            <li><a id="logout" href="{{route('logout')}}">Logout</a></li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+            </form>
           </ul>
         </li>      
       </ul>
     </div>      
-  </div><!-- /.container-fluid -->
+  </div><!-- /.container-fluid -->  
 
 </nav>      
